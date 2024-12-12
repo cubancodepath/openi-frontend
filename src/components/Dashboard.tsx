@@ -6,6 +6,7 @@ import { DateRange } from "react-day-picker";
 // import { StatCards } from "./StatCards";
 // import { TimeSeriesChart } from "./TimeSeriesChart";
 import { useData } from "@/hooks/useData";
+import { StatCards } from "./StatsCard";
 import { DateRangePicker } from "./ui/date-range-picker";
 
 interface DashboardProps {
@@ -23,6 +24,7 @@ export function Dashboard({
 DashboardProps) {
   const { data, isLoading, isError } = useData(dateRange);
 
+  if (!data) return <div>Loading...</div>;
   return (
     <div className="space-y-6">
       <h1 className="text-3xl font-bold">Air Quality Dashboard</h1>
@@ -33,7 +35,7 @@ DashboardProps) {
           setSelectedParams={setSelectedParams}
         /> */}
       </div>
-      {/* <StatCards /> */}
+      <StatCards data={data} />
       {isLoading ? (
         <Card className="p-8">
           <div className="flex justify-center items-center h-64">
