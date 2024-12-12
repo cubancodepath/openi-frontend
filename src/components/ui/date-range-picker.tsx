@@ -13,19 +13,17 @@ import {
 } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
 
-interface CalendarDateRangePickerProps {
-  className?: string;
+interface DateRangePickerProps {
   dateRange: DateRange | undefined;
-  setDateRange: (dateRange: DateRange | undefined) => void;
+  setDateRange: (range: DateRange | undefined) => void;
 }
 
-export function CalendarDateRangePicker({
-  className,
+export function DateRangePicker({
   dateRange,
   setDateRange,
-}: CalendarDateRangePickerProps) {
+}: DateRangePickerProps) {
   return (
-    <div className={cn("grid gap-2", className)}>
+    <div className={cn("grid gap-2")}>
       <Popover>
         <PopoverTrigger asChild>
           <Button
@@ -56,6 +54,7 @@ export function CalendarDateRangePicker({
             initialFocus
             mode="range"
             defaultMonth={dateRange?.from}
+            captionLayout="dropdown"
             selected={dateRange}
             onSelect={setDateRange}
             numberOfMonths={2}
