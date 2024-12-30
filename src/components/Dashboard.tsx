@@ -25,8 +25,7 @@ export function Dashboard({
 
   if (!data) return <div>Loading...</div>;
 
-  if (data.length === 0)
-    return <FileUpload onFileUpload={() => console.log("test")} />;
+  if (data.length === 0) return <FileUpload onFileUpload={() => {}} />;
   return (
     <div className="space-y-6">
       <h1 className="text-3xl font-bold">Air Quality Dashboard</h1>

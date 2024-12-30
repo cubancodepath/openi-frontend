@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { uploadFile } from "@/api/dashboard.service";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
@@ -51,7 +52,7 @@ export const useFileUpload = (options: any = {}) => {
 
     eventSource.onerror = () => {
       eventSource.close();
-      setUploadProgress((prev) => ({
+      setUploadProgress((prev: any) => ({
         ...prev,
         status: "error",
         message: "Lost connection to server",

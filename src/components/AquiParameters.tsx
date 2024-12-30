@@ -17,7 +17,7 @@ const AQIParameters = ({ data }: AQIParameterP) => {
               <h3 className="text-sm font-semibold text-muted-foreground">
                 {param.contaminant}
               </h3>
-              <p className="text-lg font-bold text-gray-900">
+              <p className="text-lg font-bold text-accent-foreground">
                 {param.value}{" "}
                 <span className="text-xs text-muted-foreground font-extralight">
                   {param.unit}

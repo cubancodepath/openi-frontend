@@ -13,10 +13,7 @@ interface HeatMapChartProps {
   selectedParameters: string[];
 }
 
-export default function HeatMapChart({
-  data,
-  selectedParameters,
-}: HeatMapChartProps) {
+export default function HeatMapChart({ data }: HeatMapChartProps) {
   const processData = () => {
     return data.map((item) => ({
       hour: new Date(item.timestamp).getHours(),

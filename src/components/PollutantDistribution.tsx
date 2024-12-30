@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { TrendingUp } from "lucide-react";
@@ -41,7 +42,6 @@ export function PollutantDistribution({
     fill: colors[selectedParams.indexOf(param) % colors.length],
   }));
 
-  console.log(pieData);
   const config = selectedParams.reduce((acc, param, index) => {
     acc[param] = {
       label: param,

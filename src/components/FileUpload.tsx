@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import {
@@ -13,7 +14,7 @@ import { File, FileWarning, Upload } from "lucide-react";
 import React, { useState } from "react";
 
 export interface FileUploadProps {
-  onFileUpload: (data: any) => void;
+  onFileUpload?: (data: any) => void;
 }
 
 const FileUpload: React.FC<FileUploadProps> = ({ onFileUpload }) => {
@@ -21,8 +22,8 @@ const FileUpload: React.FC<FileUploadProps> = ({ onFileUpload }) => {
   const [validationError, setValidationError] = useState<string>("");
 
   const { uploadFile, isUploading, uploadProgress, error } = useFileUpload({
-    onSuccess: (data) => {
-      onFileUpload(data);
+    onSuccess: (data: any) => {
+      onFileUpload?.(data);
     },
   });
 

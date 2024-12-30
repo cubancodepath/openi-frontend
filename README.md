@@ -1,50 +1,80 @@
-# React + TypeScript + Vite
+# Air Quality Dashboard Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based dashboard for visualizing air quality data.
 
-Currently, two official plugins are available:
+## Prerequisites
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Docker
+- Docker Compose
+- The backend API running on port 3001
 
-## Expanding the ESLint configuration
+## Quick Start
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. Clone the repository
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+git clone <repository-url>
+cd <project-name>
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+2. Make sure the backend API is running on port 3001
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+3. Build and run the frontend
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+docker-compose up --build
+```
+
+The application will be available at http://localhost
+
+## Development
+
+If you want to run the application locally for development:
+
+```bash
+# Install dependencies
+npm install
+
+# Run in development mode
+npm run dev
+```
+
+## Project Structure
+
+```
+.
+├── src/                # Source code
+├── Dockerfile         # Docker configuration
+├── docker-compose.yml # Docker Compose configuration
+├── nginx.conf        # Nginx configuration
+└── README.md         # This file
+```
+
+## Important Notes
+
+- The API URL is configured to `http://localhost:3000` during build time
+- Make sure your backend API is running before starting the frontend
+- The application runs on port 80 by default
+
+## Technical Stack
+
+- React
+- TypeScript
+- Vite
+- Shadcn/ui
+- TanStack Query (React Query)
+- Docker
+- Nginx
+
+## Commands
+
+```bash
+# Start the application in Docker
+docker-compose up --build
+
+# Stop the application
+docker-compose down
+
+# View logs
+docker-compose logs -f
 ```

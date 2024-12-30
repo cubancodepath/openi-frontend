@@ -16,6 +16,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
+import { COLORS } from "@/lib/constants";
 
 interface TimeSeriesChartProps {
   data: any[];
@@ -29,7 +30,7 @@ export function TimeSeriesChart({
   const config = selectedParams.reduce((acc, param, index) => {
     acc[param] = {
       label: param,
-      color: colors[index % colors.length],
+      color: COLORS[index % COLORS.length],
     };
     return acc;
   }, {} as Record<string, { label: string; color: string }>);
