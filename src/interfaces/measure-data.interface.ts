@@ -15,3 +15,11 @@ export interface MeasuresData {
   RH: string;
   AH: string;
 }
+
+export interface GetDataParams {
+  parameter: string; // e.g. co_gt, c6h6_gt, etc.
+  start: string; // YYYY-MM-DD or ISO8601
+  end: string; // YYYY-MM-DD or ISO8601
+  page?: string; // Page number for pagination
+  limit?: string; // Limit of items per page
+}

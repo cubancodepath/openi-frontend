@@ -29,8 +29,8 @@ function App() {
             <Dashboard
               dateRange={dateRange}
               setDateRange={setDateRange}
-              // selectedParams={selectedParams}
-              // setSelectedParams={setSelectedParams}
+              selectedParams={selectedParams}
+              setSelectedParams={setSelectedParams}
             />
           </main>
           <Footer />

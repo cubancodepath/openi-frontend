@@ -8,6 +8,7 @@ import {
   CommandGroup,
   CommandInput,
   CommandItem,
+  CommandList,
 } from "@/components/ui/command";
 import {
   Popover,
@@ -53,31 +54,33 @@ export function ParameterSelector({
       <PopoverContent className="w-[200px] p-0">
         <Command>
           <CommandInput placeholder="Search parameters..." className="h-9" />
-          <CommandEmpty>No parameter found.</CommandEmpty>
-          <CommandGroup>
-            {parameters.map((parameter) => (
-              <CommandItem
-                key={parameter.value}
-                onSelect={() => {
-                  setSelectedParams(
-                    selectedParams.includes(parameter.value)
-                      ? selectedParams.filter((p) => p !== parameter.value)
-                      : [...selectedParams, parameter.value]
-                  );
-                }}
-              >
-                <CheckIcon
-                  className={cn(
-                    "mr-2 h-4 w-4",
-                    selectedParams.includes(parameter.value)
-                      ? "opacity-100"
-                      : "opacity-0"
-                  )}
-                />
-                {parameter.label}
-              </CommandItem>
-            ))}
-          </CommandGroup>
+          <CommandList>
+            <CommandEmpty>No parameter found.</CommandEmpty>
+            <CommandGroup>
+              {parameters.map((parameter) => (
+                <CommandItem
+                  key={parameter.value}
+                  onSelect={() => {
+                    setSelectedParams(
+                      selectedParams.includes(parameter.value)
+                        ? selectedParams.filter((p) => p !== parameter.value)
+                        : [...selectedParams, parameter.value]
+                    );
+                  }}
+                >
+                  <CheckIcon
+                    className={cn(
+                      "mr-2 h-4 w-4",
+                      selectedParams.includes(parameter.value)
+                        ? "opacity-100"
+                        : "opacity-0"
+                    )}
+                  />
+                  {parameter.label}
+                </CommandItem>
+              ))}
+            </CommandGroup>
+          </CommandList>
         </Command>
       </PopoverContent>
     </Popover>
